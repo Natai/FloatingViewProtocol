@@ -102,8 +102,11 @@ public extension FloatingViewProtocol where Self: UIView {
 // MARK: - FloatingWindow
 public extension FloatingViewProtocol where Self: UIView {
     func makeFloatingWindowKeyAndVisible(statusBarStyle: UIStatusBarStyle = .default) {
+        defer {
+            FloatingWindowManager.shared.floatingWindow?.makeKeyAndVisible()
+        }
+        guard FloatingWindowManager.shared.floatingWindow == nil else { return }
         let floatingWindow = FloatingWindow(frame: UIScreen.main.bounds, statusBarStyle: statusBarStyle)
-        floatingWindow.makeKeyAndVisible()
         floatingWindow.addSubview(self)
         // floatingWindow must be referenced, otherwise it cannot be displayed
         FloatingWindowManager.shared.floatingWindow = floatingWindow
