@@ -1,0 +1,6 @@
+framework module Pods_FloatingViewDemo {
+  umbrella header "Pods-FloatingViewDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
