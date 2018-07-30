@@ -43,17 +43,17 @@ public extension UIView {
         
         switch pan.state {
         case .began:
-            floatingDelegate?.floatingViewDidBeginDragging(view)
+            floatingDelegate?.floatingViewDidBeginDragging(panGestureRecognizer: pan)
         case .changed:
             defer {
                 pan.setTranslation(.zero, in: self)
             }
             let translation = pan.translation(in: self)
             modifyOrigin(withTranslation: translation)
-            floatingDelegate?.floatingViewDidMove(view)
+            floatingDelegate?.floatingViewDidMove(panGestureRecognizer: pan)
         case .ended:
             animateToAdsorb()
-            floatingDelegate?.floatingViewDidEndDragging(view)
+            floatingDelegate?.floatingViewDidEndDragging(panGestureRecognizer: pan)
         default: break
         }
     }
@@ -165,7 +165,7 @@ public extension UIView {
         UIView.animate(withDuration: view.partiallyHideAnimationDuration, animations: {
             self.frame.origin = destinationOrigin
         }) { isFinished in
-            self.floatingDelegate?.floatingViewFinishedPartiallyHideAnimation(view)
+            self.floatingDelegate?.floatingViewFinishedPartiallyHideAnimation()
         }
     }
 }

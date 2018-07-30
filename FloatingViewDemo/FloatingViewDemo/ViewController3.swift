@@ -117,11 +117,11 @@ extension ViewController3: UITextFieldDelegate {
 
 // MARK: - FloatingViewDelegate
 extension ViewController3: FloatingViewDelegate {
-    func floatingViewDidBeginDragging(_ floatingView: (UIView & FloatingViewProtocol)) {
+    func floatingViewDidBeginDragging(panGestureRecognizer: UIPanGestureRecognizer) {
         floatingView.alpha = 1
     }
     
-    func floatingViewFinishedPartiallyHideAnimation(_ floatingView: (UIView & FloatingViewProtocol)) {
+    func floatingViewFinishedPartiallyHideAnimation() {
         floatingView.alpha = 0.5
     }
 }

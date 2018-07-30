@@ -3,8 +3,9 @@
 1. 支持拖动、自动吸附、吸附后部分隐藏
 2. 支持自定义可吸附的 edges 
 3. 支持自定义水平和纵向吸附的优先级
-4. 支持自定义悬浮视图可到达区域 
-5. 支持自定义添加到`UIView`子类或者本库提供的`keyWindow`上
+4. 支持自定义开始吸附的最小距离
+5. 支持自定义悬浮视图可到达区域 
+6. 支持自定义添加到`UIView`子类或者本库提供的`keyWindow`上
 
 # 环境要求
 
@@ -85,3 +86,15 @@ floatingView.makeFloatingWindowKeyAndVisible()
 ```swift
 floatingView.updateFloatingWindowStatusBarStyle(to: default)
 ```
+
+# 代理
+
+在悬浮视图开始拖动、结束拖动、拖动中和完成部分隐藏动画时，分别有以下代理方法：
+
+```swift
+func floatingViewDidBeginDragging(panGestureRecognizer: UIPanGestureRecognizer)
+func floatingViewDidEndDragging(panGestureRecognizer: UIPanGestureRecognizer)
+func floatingViewDidMove(panGestureRecognizer: UIPanGestureRecognizer)
+func floatingViewFinishedPartiallyHideAnimation()
+```
+

@@ -9,15 +9,15 @@
 import UIKit
 
 public protocol FloatingViewDelegate: NSObjectProtocol {
-    func floatingViewDidBeginDragging(_ floatingView: (UIView & FloatingViewProtocol))
-    func floatingViewDidEndDragging(_ floatingView: (UIView & FloatingViewProtocol))
-    func floatingViewDidMove(_ floatingView: (UIView & FloatingViewProtocol))
-    func floatingViewFinishedPartiallyHideAnimation(_ floatingView: (UIView & FloatingViewProtocol))
+    func floatingViewDidBeginDragging(panGestureRecognizer: UIPanGestureRecognizer)
+    func floatingViewDidEndDragging(panGestureRecognizer: UIPanGestureRecognizer)
+    func floatingViewDidMove(panGestureRecognizer: UIPanGestureRecognizer)
+    func floatingViewFinishedPartiallyHideAnimation()
 }
 
 public extension FloatingViewDelegate {
-    func floatingViewDidBeginDragging(_ floatingView: (UIView & FloatingViewProtocol)) { }
-    func floatingViewDidEndDragging(_ floatingView: (UIView & FloatingViewProtocol)) { }
-    func floatingViewDidMove(_ floatingView: (UIView & FloatingViewProtocol)) { }
-    func floatingViewFinishedPartiallyHideAnimation(_ floatingView: (UIView & FloatingViewProtocol)) { }
+    func floatingViewDidBeginDragging(panGestureRecognizer: UIPanGestureRecognizer) { }
+    func floatingViewDidEndDragging(panGestureRecognizer: UIPanGestureRecognizer) { }
+    func floatingViewDidMove(panGestureRecognizer: UIPanGestureRecognizer) { }
+    func floatingViewFinishedPartiallyHideAnimation() { }
 }
