@@ -28,16 +28,16 @@ public enum FloatingAdsorbPriority: Int {
 }
 
 public class FloatingViewProtocolComponent {
-    var isDraggable = true
-    var isAutoAdsorb = true
-    var adsorbableEdges: FloatingAdsorbableEdges = [.top, .left, .bottom, .right]
-    var adsorbPriority: FloatingAdsorbPriority = .verticalHigher
-    var adsorbAnimationDuration: TimeInterval = 0.35
-    var isAutoPartiallyHide = false
-    var partiallyHidePercent: CGFloat = 0.5
-    var partiallyHideAnimationDuration: TimeInterval = 0.35
-    var floatingEdgeInsets: UIEdgeInsets = .zero
-    var minAdsorbableSpacings: UIEdgeInsets?
+    public var isDraggable = true
+    public var isAutoAdsorb = true
+    public var adsorbableEdges: FloatingAdsorbableEdges = [.top, .left, .bottom, .right]
+    public var adsorbPriority: FloatingAdsorbPriority = .verticalHigher
+    public var adsorbAnimationDuration: TimeInterval = 0.35
+    public var isAutoPartiallyHide = false
+    public var partiallyHidePercent: CGFloat = 0.5
+    public var partiallyHideAnimationDuration: TimeInterval = 0.35
+    public var floatingEdgeInsets: UIEdgeInsets = .zero
+    public var minAdsorbableSpacings: UIEdgeInsets?
     
     public init() {}
 }
