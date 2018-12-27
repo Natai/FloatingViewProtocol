@@ -8,27 +8,29 @@
 
 import UIKit
 
-private var floatingPanGestureKey = "floatingPanGestureKey"
-private var floatingDelegateKey = "floatingDelegateKey"
-
 public extension UIView {
+    private struct AssociatedKeys {
+        static var floatingPanGestureKey = "floatingPanGestureKey"
+        static var floatingDelegateKey = "floatingDelegateKey"
+    }
+    
     weak var floatingDelegate: FloatingViewDelegate? {
         get {
-            return objc_getAssociatedObject(self, &floatingDelegateKey) as? FloatingViewDelegate
+            return objc_getAssociatedObject(self, &AssociatedKeys.floatingDelegateKey) as? FloatingViewDelegate
         }
         set {
             guard let newValue = newValue else { return }
-            objc_setAssociatedObject(self, &floatingDelegateKey, newValue as FloatingViewDelegate?, .OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociatedKeys.floatingDelegateKey, newValue as FloatingViewDelegate?, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     
     var floatingPanGesture: UIPanGestureRecognizer? {
         get {
-            return objc_getAssociatedObject(self, &floatingPanGestureKey) as? UIPanGestureRecognizer
+            return objc_getAssociatedObject(self, &AssociatedKeys.floatingPanGestureKey) as? UIPanGestureRecognizer
         }
         set {
             guard let newValue = newValue else { return }
-            objc_setAssociatedObject(self, &floatingPanGestureKey, newValue as UIPanGestureRecognizer?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.floatingPanGestureKey, newValue as UIPanGestureRecognizer?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
