@@ -11,7 +11,7 @@ import UIKit
 public struct FloatingAdsorbableEdges: OptionSet {
     public let rawValue: UInt
     
-    public init(rawValue: FloatingAdsorbableEdges.RawValue) {
+    public init(rawValue: UInt) {
         self.rawValue = rawValue
     }
     
